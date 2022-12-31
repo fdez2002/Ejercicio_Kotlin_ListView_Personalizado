@@ -1,5 +1,6 @@
 package com.example.ejerciciokotlinlistviewpersonalizado
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListAdapter
@@ -14,18 +15,21 @@ class MainActivity : AppCompatActivity() {
 
         binding.recycler.adapter = PersonaAdapter(
             listOf(
-                Persona(R.drawable.hombre,"Francisco", "Ruiz", "2Dam"),
-                Persona( R.drawable.mujer,"Sofia", "Ruiz", "1Dam"),
-                Persona( R.drawable.mujer,"Carmen", "Ruiz", "2Asir"),
-                Persona( R.drawable.hombre,"Antonio", "Ruiz", "1Daw"),
-                Persona( R.drawable.hombre,"Carlos", "Ruiz", "2Dam"),
-                Persona( R.drawable.mujer,"Sara", "Ruiz", "2Dam"),
-                Persona( R.drawable.hombre,"Manuel", "Ruiz", "2Dam"),
-                Persona( R.drawable.hombre,"Sergio", "Ruiz", "2Dam"),
-                Persona( R.drawable.mujer,"Lucia", "Ruiz", "2Dam"),
+                Persona(R.drawable.hombre,"Francisco", "Ruiz", "DAM"),
+                Persona( R.drawable.mujer,"Sofia", "Ruiz", "DAW"),
+                Persona( R.drawable.mujer,"Carmen", "Ruiz", "ASIR"),
+                Persona( R.drawable.hombre,"Antonio", "Ruiz", "ASIR"),
+                Persona( R.drawable.hombre,"Carlos", "Ruiz", "DAW"),
+                Persona( R.drawable.mujer,"Sara", "Ruiz", "DAM"),
+                Persona( R.drawable.hombre,"Manuel", "Ruiz", "DAM"),
+                Persona( R.drawable.hombre,"Sergio", "Ruiz", "DAW"),
+                Persona( R.drawable.mujer,"Lucia", "Ruiz", "ASIR"),
             )
         ){persona ->
-            Toast.makeText(this, persona.nombre, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, persona.nombre, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ActivityModulos::class.java)
+            intent.putExtra("CICLO", persona.ciclo)
+            startActivity(intent)
         }
 
     }
